@@ -117,11 +117,11 @@ PRICE_OF_FLIGHT_TO_COME_BACK = {
     '2023-04-21': 120
 }
 
-# Use the find_lowest_price() function to find the lowest price and its date
-lowest_price,lowest_price_date = find_lowest_price(PRICE_OF_FLIGHT_TO_GO, PRICE_OF_FLIGHT_TO_COME_BACK, PRICE_PER_NIGHT, MIN_NIGHTS, MAX_NIGHTS)
-
-# Print the lowest price and its date
-print(f"The lowest price is {lowest_price} on {lowest_price_date}.")
-            
+if __name__ == '__main__':
+    # Use the find_lowest_price() function to find the lowest price and its date
+    lowest_price,lowest_price_date = find_lowest_price(PRICE_OF_FLIGHT_TO_GO, PRICE_OF_FLIGHT_TO_COME_BACK, PRICE_PER_NIGHT, MIN_NIGHTS, MAX_NIGHTS)
+    
+    # Print the lowest price and its date
+    print(f"The lowest price is {lowest_price} on {lowest_price_date}.")
             
             
