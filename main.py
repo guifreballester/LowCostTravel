@@ -11,47 +11,49 @@ def get_datetime(date: str) -> datetime:
     """
     return datetime.strptime(date, '%Y-%m-%d')
 
-def get_num_nights(date_to_go: datetime, date_to_come_back: datetime) -> int:
+def get_num_nights(date_to_go: datetime, date_to_comeback: datetime) -> int:
     """
     Calculate the number of nights between two dates.
     
     :param date_to_go: The date to go on the trip
-    :param date_to_come_back: The date to come back from the trip
+    :param date_to_comeback: The date to come back from the trip
     :return: The number of nights between the two dates
     """
-    return (date_to_come_back - date_to_go).days
+    return (date_to_comeback - date_to_go).days
 
-def get_trip_price(num_nights: int, price_per_night: int, price_to_go: int, price_to_come_back: int) -> int:
+def get_trip_price(num_nights: int, price_per_night: int, price_to_go: int, price_to_comeback: int) -> int:
     """
     Calculate the total cost of a trip.
     
     :param num_nights: The number of nights for the trip
     :param price_per_night: The price per night for the trip
     :param price_to_go: The price of the flight to go
-    :param price_to_come_back: The price of the flight to come back
+    :param price_to_comeback: The price of the flight to come back
     :return: The total cost of the trip
     """
-    return num_nights * price_per_night + price_to_go + price_to_come_back
+    return num_nights * price_per_night + price_to_go + price_to_comeback
 
-def find_lowest_price(PRICE_OF_FLIGHT_TO_GO, PRICE_OF_FLIGHT_TO_COME_BACK, PRICE_PER_NIGHT, MIN_NIGHTS, MAX_NIGHTS):
+def find_lowest_price(PRICE_OF_FLIGHT_TO_GO, PRICE_OF_FLIGHT_TO_COMEBACK, PRICE_PER_NIGHT, MIN_NIGHTS, MAX_NIGHTS):
     total_cost = {}
     # iterate over the possible flight dates to go
     for date_to_go, price_to_go in PRICE_OF_FLIGHT_TO_GO.items():
         # convert the date to a datetime object
         date_to_go = get_datetime(date_to_go)
+        price_to_go = int(price_to_go)
 
         # iterate over the possible flight dates to come back
-        for date_to_come_back, price_to_come_back in PRICE_OF_FLIGHT_TO_COME_BACK.items():
+        for date_to_comeback, price_to_comeback in PRICE_OF_FLIGHT_TO_COMEBACK.items():
             # convert the date to a datetime object
-            date_to_come_back = get_datetime(date_to_come_back)
+            date_to_comeback = get_datetime(date_to_comeback)
+            price_to_comeback = int(price_to_comeback)
 
             # calculate the number of nights for the trip
-            num_nights = get_num_nights(date_to_go, date_to_come_back)
+            num_nights = get_num_nights(date_to_go, date_to_comeback)
 
             # check if the number of nights is greater than or equal to the minimum number of nights
-            if num_nights >= MIN_NIGHTS and num_nights <= MAX_NIGHTS and date_to_come_back > specific_date:
-                price = get_trip_price(num_nights, PRICE_PER_NIGHT, price_to_go, price_to_come_back)
-                text = "date_to_go: "+date_to_go.strftime("%Y-%m-%d")+" date_to_come_back: "+date_to_come_back.strftime("%Y-%m-%d")
+            if num_nights >= MIN_NIGHTS and num_nights <= MAX_NIGHTS and date_to_comeback > specific_date:
+                price = get_trip_price(num_nights, PRICE_PER_NIGHT, price_to_go, price_to_comeback)
+                text = "date_to_go: "+date_to_go.strftime("%Y-%m-%d")+" date_to_comeback: "+date_to_comeback.strftime("%Y-%m-%d")
                 total_cost[text] = price
 
     # Find the lowest price and its corresponding date
