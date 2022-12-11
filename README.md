@@ -1,6 +1,6 @@
 # CheapFlightsFinder
 
-CheapFlightsFinder is a tool for finding the lowest prices for flights.
+CheapFlightsFinder is a tool for finding the lowest dates your next trip.
 
 ## Getting Started
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
@@ -31,6 +31,7 @@ To use CheapFlightsFinder, you need to provide the following information:
 - The prices of flights to come back, in the form of a dictionary with the date as the key and the price as the value
 - The average price per night for the hotel stay
 - The minimum and maximum number of nights for the trip
+
 For example:
 
 ```
@@ -45,7 +46,7 @@ lowest_price, lowest_price_date = find_lowest_price(PRICE_OF_FLIGHT_TO_GO, PRICE
 print(f"The lowest price is {lowest_price} on {lowest_price_date}.")
 ```
 
-This will find the lowest price for a trip that has a minimum of 3 nights and a maximum of 7 nights.
+This will find the most optimal dates for a trip that has a minimum of 3 nights and a maximum of 7 nights.
 
 ## Contributing
 Please read [CONTRIBUTING.md](https://github.com/guifreballester/LowCostTravel/blob/master/CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
