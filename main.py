@@ -99,8 +99,8 @@ if __name__ == '__main__':
     # define the price of flight to go and comeback per date as a dictionary
     # where the keys are dates in the format 'YYYY-MM-DD' and the
     # values are the prices of the flights for those dates
-    csv_file_name_go = 'prices_go.csv'
-    csv_file_name_comeback = 'prices_comeback.csv'
+    csv_file_name_go = 'data/prices_go.csv'
+    csv_file_name_comeback = 'data/prices_comeback.csv'
     
     # Upload the prices from the CSV file
     price_of_flight_to_go = upload_prices_from_csv(csv_file_name_go)
