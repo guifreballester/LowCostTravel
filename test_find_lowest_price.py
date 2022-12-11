@@ -43,7 +43,7 @@ class TestFindLowestPrice(unittest.TestCase):
         # Define the price of flight to come back per date as a dictionary
         # where the keys are dates in the format 'YYYY-MM-DD'
         # and the values are the prices in euros
-        PRICE_OF_FLIGHT_TO_COME_BACK = {
+        PRICE_OF_FLIGHT_TO_COMEBACK = {
             '2023-04-05': 90,
             '2023-04-06': 90,
             '2023-04-07': 170,
@@ -66,7 +66,7 @@ class TestFindLowestPrice(unittest.TestCase):
         # Call the find_lowest_price function
         lowest_price, lowest_price_date = find_lowest_price(
             PRICE_OF_FLIGHT_TO_GO,
-            PRICE_OF_FLIGHT_TO_COME_BACK,
+            PRICE_OF_FLIGHT_TO_COMEBACK,
             PRICE_PER_NIGHT,
             MIN_NIGHTS,
             MAX_NIGHTS
@@ -76,7 +76,7 @@ class TestFindLowestPrice(unittest.TestCase):
         self.assertEqual(lowest_price, 770)
 
         # Check if the lowest price date is correct
-        self.assertEqual(lowest_price_date, 'date_to_go: 2023-04-06 date_to_come_back: 2023-04-16')
+        self.assertEqual(lowest_price_date, 'date_to_go: 2023-04-06 date_to_comeback: 2023-04-16')
 
 # Run the test cases
 if __name__ == '__main__':
