@@ -64,4 +64,4 @@ Please read [CONTRIBUTING.md](https://github.com/guifreballester/LowCostTravel/b
 See also the list of [contributors](https://github.com/guifreballester/LowCostTravel/contributors) who participated in this project.
 
 ## License
-This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/user/CheapFlightsFinder/blob/master/LICENSE.
+This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/user/CheapFlightsFinder/blob/master/LICENSE).
