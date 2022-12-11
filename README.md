@@ -3,12 +3,15 @@
 CheapFlightsFinder is a tool for finding the lowest dates your next trip.
 
 ## Getting Started
+
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
 ### Prerequisites
+
 - Python 3.6 or later
 
 ### Installing
+
 1. Clone the repository:
 
 ```
@@ -16,15 +19,19 @@ git clone https://github.com/user/CheapFlightsFinder.git
 ```
 
 2. Install the required packages:
+
 ```
 pip install -r requirements.txt
 ```
 
 3. Run the program:
+
 ```
 python main.py
 ```
+
 ## Usage
+
 To use CheapFlightsFinder, you need to provide the following information:
 
 - The prices of flights to go, in the form of a dictionary with the date as the key and the price as the value
@@ -53,6 +60,7 @@ Please read [CONTRIBUTING.md](https://github.com/guifreballester/LowCostTravel/b
 
 ## Authors
 - [Guifré Ballester Basols] - Initial work - guifreballester
+
 See also the list of [contributors](https://github.com/guifreballester/LowCostTravel/contributors) who participated in this project.
 
 ## License
