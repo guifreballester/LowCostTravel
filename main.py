@@ -1,5 +1,6 @@
 # import necessary libraries
 from datetime import datetime
+import csv
 
 def get_datetime(date: str) -> datetime:
     """
@@ -50,7 +51,7 @@ def find_lowest_price(PRICE_OF_FLIGHT_TO_GO, PRICE_OF_FLIGHT_TO_COME_BACK, PRICE
             # check if the number of nights is greater than or equal to the minimum number of nights
             if num_nights >= MIN_NIGHTS and num_nights <= MAX_NIGHTS and date_to_come_back > specific_date:
                 price = get_trip_price(num_nights, PRICE_PER_NIGHT, price_to_go, price_to_come_back)
-                text = "date_to_go: ", date_to_go.strftime("%Y-%m-%d"), "date_to_come_back: ", date_to_come_back.strftime("%Y-%m-%d")
+                text = "date_to_go: "+date_to_go.strftime("%Y-%m-%d")+" date_to_come_back: "+date_to_come_back.strftime("%Y-%m-%d")
                 total_cost[text] = price
 
     # Find the lowest price and its corresponding date
@@ -60,11 +61,31 @@ def find_lowest_price(PRICE_OF_FLIGHT_TO_GO, PRICE_OF_FLIGHT_TO_COME_BACK, PRICE
     # Return the lowest price and its date
     return lowest_price, lowest_price_date
 
+def upload_prices_from_csv(csv_file_name: str) -> dict:
+    # Create an empty dictionary
+    prices = {}
+
+    # Open the CSV file in read mode
+    with open(csv_file_name, 'r') as csv_file:
+        # Create a CSV reader
+        reader = csv.reader(csv_file)
+
+        # Iterate over the rows in the CSV file
+        for row in reader:
+            # Get the date and price from the row
+            date, price = row
+
+            # Add the date and price to the dictionary
+            prices[date] = price
+
+    # Return the dictionary
+    return prices
+
 # Create a datetime object for the specific date
 specific_date = datetime(2023, 4, 10)
 
 # define the minimum number of nights for the trip
-MIN_NIGHTS = 10
+MIN_NIGHTS = 12
 
 # define the maximum number of nights for the trip
 MAX_NIGHTS = 15
@@ -72,56 +93,22 @@ MAX_NIGHTS = 15
 # define the price per night in euros
 PRICE_PER_NIGHT = 60
 
-# define the price of flight to go per date as a dictionary
-# where the keys are dates in the format 'YYYY-MM-DD' and the
-# values are the prices of the flights for those dates
-PRICE_OF_FLIGHT_TO_GO = {
-    '2023-03-27': 45,
-    '2023-03-28': 70,
-    '2023-03-29': 100,
-    '2023-03-30': 110,
-    '2023-03-31': 150,
-    '2023-04-01': 140,
-    '2023-04-02': 150,
-    '2023-04-03': 150,
-    '2023-04-04': 90,
-    '2023-04-05': 120,
-    '2023-04-06': 90,
-    '2023-04-07': 150,
-    '2023-04-08': 110,
-    '2023-04-09': 100,
-    '2023-04-10': 110,
-    '2023-04-11': 110
-}
-
-# define the price of flight to come back per date as a dictionary
-# where the keys are dates in the format 'YYYY-MM-DD' and the
-# values are the prices of the flights for those dates
-PRICE_OF_FLIGHT_TO_COME_BACK = {
-    '2023-04-05': 90,
-    '2023-04-06': 90,
-    '2023-04-07': 170,
-    '2023-04-08': 150,
-    '2023-04-09': 150,
-    '2023-04-10': 150,
-    '2023-04-11': 180,
-    '2023-04-12': 100,
-    '2023-04-13': 140,
-    '2023-04-14': 140,
-    '2023-04-15': 80,
-    '2023-04-16': 80,
-    '2023-04-17': 100,
-    '2023-04-18': 100,
-    '2023-04-19': 165,
-    '2023-04-20': 165,
-    '2023-04-21': 120
-}
-
 if __name__ == '__main__':
+    # define the price of flight to go and comeback per date as a dictionary
+    # where the keys are dates in the format 'YYYY-MM-DD' and the
+    # values are the prices of the flights for those dates
+    prices_go_csv_file_name = 'prices_go.csv'
+    prices_comeback_csv_file_name = 'prices_comeback.csv'
+    
+    # Upload the prices from the CSV file
+    price_of_flight_to_go = upload_prices_from_csv(prices_go_csv_file_name)
+    price_of_flight_to_comeback = upload_prices_from_csv(prices_comeback_csv_file_name)
+
     # Use the find_lowest_price() function to find the lowest price and its date
-    lowest_price,lowest_price_date = find_lowest_price(PRICE_OF_FLIGHT_TO_GO, PRICE_OF_FLIGHT_TO_COME_BACK, PRICE_PER_NIGHT, MIN_NIGHTS, MAX_NIGHTS)
+    lowest_price,lowest_price_date = find_lowest_price(price_of_flight_to_go, price_of_flight_to_comeback, PRICE_PER_NIGHT, MIN_NIGHTS, MAX_NIGHTS)
     
     # Print the lowest price and its date
     print(f"The lowest price is {lowest_price} on {lowest_price_date}.")
+            
             
             
