@@ -99,12 +99,12 @@ if __name__ == '__main__':
     # define the price of flight to go and comeback per date as a dictionary
     # where the keys are dates in the format 'YYYY-MM-DD' and the
     # values are the prices of the flights for those dates
-    prices_go_csv_file_name = 'prices_go.csv'
-    prices_comeback_csv_file_name = 'prices_comeback.csv'
+    csv_file_name_go = 'prices_go.csv'
+    csv_file_name_comeback = 'prices_comeback.csv'
     
     # Upload the prices from the CSV file
-    price_of_flight_to_go = upload_prices_from_csv(prices_go_csv_file_name)
-    price_of_flight_to_comeback = upload_prices_from_csv(prices_comeback_csv_file_name)
+    price_of_flight_to_go = upload_prices_from_csv(csv_file_name_go)
+    price_of_flight_to_comeback = upload_prices_from_csv(csv_file_name_comeback)
 
     # Use the find_lowest_price() function to find the lowest price and its date
     lowest_price,lowest_price_date = find_lowest_price(price_of_flight_to_go, price_of_flight_to_comeback, PRICE_PER_NIGHT, MIN_NIGHTS, MAX_NIGHTS)
@@ -113,4 +113,4 @@ if __name__ == '__main__':
     print(f"The lowest price is {lowest_price} on {lowest_price_date}.")
             
             
-            
+        
