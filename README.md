@@ -1,6 +1,6 @@
 # LowCostTravel
 
-LowCostTravel is a tool for finding the lowest dates your next trip.
+LowCostTravel is a tool for finding the best dates your next trip. It takes into account the prices of each flight plus the cost of the stay. Once you provide the number of days you can stay there, it will output the best date to start and end your trip.
 
 ## Getting Started
 
