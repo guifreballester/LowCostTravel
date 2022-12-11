@@ -59,7 +59,7 @@ This will find the most optimal dates for a trip that has a minimum of 3 nights 
 Please read [CONTRIBUTING.md](https://github.com/guifreballester/LowCostTravel/blob/master/CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
 
 ## Authors
-- [Guifré Ballester Basols] - Initial work - guifreballester
+- [Guifré Ballester] - Initial work - guifreballester
 
 See also the list of [contributors](https://github.com/guifreballester/LowCostTravel/contributors) who participated in this project.
 
