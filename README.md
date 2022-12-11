@@ -1,6 +1,6 @@
-# CheapFlightsFinder
+# LowCostTravel
 
-CheapFlightsFinder is a tool for finding the lowest dates your next trip.
+LowCostTravel is a tool for finding the lowest dates your next trip.
 
 ## Getting Started
 
@@ -15,7 +15,7 @@ These instructions will get you a copy of the project up and running on your loc
 1. Clone the repository:
 
 ```
-git clone https://github.com/user/CheapFlightsFinder.git
+git clone https://github.com/user/LowCostTravel.git
 ```
 
 2. Install the required packages:
@@ -32,7 +32,7 @@ python main.py
 
 ## Usage
 
-To use CheapFlightsFinder, you need to provide the following information:
+To use LowCostTravel, you need to provide the following information:
 
 - The prices of flights to go, in the form of a dictionary with the date as the key and the price as the value
 - The prices of flights to come back, in the form of a dictionary with the date as the key and the price as the value
@@ -64,4 +64,4 @@ Please read [CONTRIBUTING.md](https://github.com/guifreballester/LowCostTravel/b
 See also the list of [contributors](https://github.com/guifreballester/LowCostTravel/contributors) who participated in this project.
 
 ## License
-This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/user/CheapFlightsFinder/blob/master/LICENSE).
+This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/user/LowCostTravel/blob/master/LICENSE).
