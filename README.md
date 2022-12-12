@@ -60,6 +60,7 @@ Please read [CONTRIBUTING.md](https://github.com/guifreballester/LowCostTravel/b
 
 ## Authors
 - [Guifré Ballester] - Initial work - guifreballester
+- ChatGPT
 
 See also the list of [contributors](https://github.com/guifreballester/LowCostTravel/contributors) who participated in this project.
 
