@@ -1,6 +1,7 @@
 # import necessary libraries
 from datetime import datetime
 import csv
+import matplotlib.pyplot as plt
 
 def get_datetime(date: str) -> datetime:
     """
@@ -35,6 +36,7 @@ def get_trip_price(num_nights: int, price_per_night: int, price_to_go: int, pric
 
 def find_lowest_price(PRICE_OF_FLIGHT_TO_GO, PRICE_OF_FLIGHT_TO_COMEBACK, PRICE_PER_NIGHT, MIN_NIGHTS, MAX_NIGHTS):
     total_cost = {}
+    plot_data = []
     # iterate over the possible flight dates to go
     for date_to_go, price_to_go in PRICE_OF_FLIGHT_TO_GO.items():
         # convert the date to a datetime object
@@ -55,10 +57,20 @@ def find_lowest_price(PRICE_OF_FLIGHT_TO_GO, PRICE_OF_FLIGHT_TO_COMEBACK, PRICE_
                 price = get_trip_price(num_nights, PRICE_PER_NIGHT, price_to_go, price_to_comeback)
                 text = "date_to_go: "+date_to_go.strftime("%Y-%m-%d")+" date_to_comeback: "+date_to_comeback.strftime("%Y-%m-%d")
                 total_cost[text] = price
+                print(text, price)
+                
+                # create a dictionary
+                plot_dictionary = {'date_to_go': date_to_go.strftime("%m-%d"), 'date_to_comeback': date_to_comeback.strftime("%m-%d"), 'price':price}
+                
+                # add the dictionary to the list
+                plot_data.append(plot_dictionary)
 
     # Find the lowest price and its corresponding date
     lowest_price = min(total_cost.values())
     lowest_price_date = [date for date, price in total_cost.items() if price == lowest_price][0]
+    
+    # plot the data
+    plot_prices(plot_data)
 
     # Return the lowest price and its date
     return lowest_price, lowest_price_date
@@ -82,12 +94,29 @@ def upload_prices_from_csv(csv_file_name: str) -> dict:
 
     # Return the dictionary
     return prices
+    
+def plot_prices(data):
+    # create a list of x-values (date_to_go values)
+    date_to_go_values = [datapoint["date_to_go"] for datapoint in data]
+    # create a list of y-values (date_to_comeback values)
+    date_to_comeback_values = [datapoint["date_to_comeback"] for datapoint in data]
+    # create a list of z-values (price values)
+    price_values = [datapoint["price"] for datapoint in data]
+
+    # create a scatter plot with the x-values, y-values, and z-values
+    plt.scatter(date_to_go_values, date_to_comeback_values, c=price_values)
+
+    # add a colorbar to the scatter plot
+    plt.colorbar()
+
+    # show the plot
+    plt.show()
 
 # Create a datetime object for the specific date
 specific_date = datetime(2023, 4, 10)
 
 # define the minimum number of nights for the trip
-MIN_NIGHTS = 12
+MIN_NIGHTS = 9
 
 # define the maximum number of nights for the trip
 MAX_NIGHTS = 15
